@@ -5,8 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Organiser;
 use Illuminate\Http\Request;
 use Image;
+use View;
 
-class OrganiserController extends MyBaseController
+class OrganiserController extends Controller
 {
     /**
      * Show the select organiser page
@@ -15,6 +16,7 @@ class OrganiserController extends MyBaseController
      */
     public function showSelectOrganiser()
     {
+        View::share('organisers', Organiser::scope()->get());
         return view('ManageOrganiser.SelectOrganiser');
     }
 

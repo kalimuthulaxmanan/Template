@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Http\Request;
 use Redirect;
 use View;
+use Auth;
 
 class UserLoginController extends Controller
 {

@@ -10,6 +10,8 @@ include_once('api_routes.php');
  * Installer
  * -------------------------
  */
+
+
 Route::get('install', [
     'as'   => 'showInstaller',
     'uses' => 'InstallerController@showInstaller',
@@ -41,6 +43,7 @@ Route::group(['middleware' => ['installed']], function () {
     /*
      * Login
      */
+
     Route::get('/login', [
         'as'   => 'login',
         'uses' => 'UserLoginController@showLogin',
@@ -88,7 +91,7 @@ Route::group(['middleware' => ['installed']], function () {
     Route::get('signup/confirm_email/{confirmation_code}', [
         'as'   => 'confirmEmail',
         'uses' => 'UserSignupController@confirmEmail',
-    ]);
+    ])  ;
 });
 
 /*
@@ -177,7 +180,7 @@ Route::get('order/{order_reference}/tickets', [
 /*
  * Backend routes
  */
-Route::group(['middleware' => ['auth', 'first.run']], function () {
+Route::group(['middleware' => ['admin', 'first.run']], function () {
 
     /*
      * Edit User
